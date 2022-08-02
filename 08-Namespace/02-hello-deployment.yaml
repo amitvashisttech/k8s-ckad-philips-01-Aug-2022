@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: hello-deployment
+  name: hello-deployment
+  namespace: myspace
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-deployment
+  template:
+    metadata:
+      labels:
+        app: hello-deployment
+    spec:
+      containers:
+      - image: amitvashist7/k8s-tiny-web
+        name: k8s-tiny-web
+        ports:
+        - containerPort: 80
