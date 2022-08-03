@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: helloworld-nginx
+  labels:
+    app: helloworld-nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.11
+    ports:
+    - containerPort: 80
+    volumeMounts:
+    - name: config-volume
+      mountPath: /etc/nginx/conf.d
+    - name: config-volume-2
+      mountPath: /etc/creds
+  - name: k8s-demo
+    image: amitvashist7/k8s-demo
+    ports:
+    - containerPort: 3000
+  - name: k8s-demo-2
+    image: amitvashist7/mypython-web-app:v4
+    imagePullPolicy: IfNotPresent
+    ports:
+    - containerPort: 8081
+  volumes:
+    - name: config-volume
+      configMap:
+        name: my-config
+        items:
+        - key: reverseproxy.conf
+          path: reverseproxy.conf
+    - name: config-volume-2
+      configMap:
+        name: nginx-config
+        items:
+        - key: reverseproxy.conf
+          path: abc.conf
