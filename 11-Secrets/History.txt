@@ -1,51 +1,52 @@
-    1  kubectl get secrets 
-    2  cat /root/username.txt 
-    3  cat /root/password.txt 
-    4  kubectl create secret generic mysecrets --from-file=/root/username.txt --from-file=/root/password.txt
-    5  kubectl get secrets 
-    6  kubectl describe secrets mysecrets
-    7  kubectl edit secrets mysecrets
-    8  ls
-    9  mkdir 09-Secrets 
-   10  cd 09-Secrets/
-   11  ls
-   12  vim helloworld-secrets-volumes.yaml
-   13  ls
-   14  kubectl create -f helloworld-secrets-volumes.yaml 
-   15  kubectl get deploy 
-   16  kubectl get pods 
-   17  kubectl describe pods helloworld-deployment-f6c47d6c5-fgt6v
-   18  ls
-   19  kubectl get pods
-   20  kubectl exec -it helloworld-deployment-f6c47d6c5-fgt6v -- bash
-   21  ls
-   22  vi /etc/hosts
-   23  kubectl exec -it helloworld-deployment-f6c47d6c5-fgt6v -- bash
-   24  kubectl exec -it helloworld-deployment-f6c47d6c5-fgt6v -- /bin/bash
-   25  kubectl get pods 
-   26  kubectl get pods -o wide 
-   27  kubectl exec -it helloworld-deployment-f6c47d6c5-h9thr -- /bin/sh
-   28  cat /etc/hosts
-   29  ping worker01
-   30  ping worker02
-   31  ls
-   32  kubectl exec -it helloworld-deployment-f6c47d6c5-h9thr -- /bin/sh
-   33  ls
-   34  kubectl delete -f helloworld-secrets-volumes.yaml 
-   35  vim helloworld-secrets.yaml
-   36  echo -n "paypal" | base64
-   37  echo -n "paypal@432!" | base64
-   38  vim helloworld-secrets.yaml 
-   39  ls
-   40  vim helloworld-secrets-volumes.yaml 
-   41  ls
-   42  cd ..
-   43  ls
-   44  kubectl create -f 09-Secrets/
-   45  kubectl get pods 
-   46  kubectl exec -it helloworld-deployment-64968b454c-gcdvq -- /bin/sh
-   47  ls
-   48  cd 09-Secrets/
-   49  ls
-   50  history 
-   51  history  > History.txt
+```
+  487  cd 11-Secrets/
+  488  ls
+  489  cat 01-helloworld-secrets-volumes.yaml
+  490  cd
+  491  ls
+  492  echo "amitvashist7@outlook.com" > username.txt
+  493  echo "Pass@word1234" > password.txt
+  494  cat username.txt
+  495  cat password.txt
+  496  kubectl create secret --help
+  497  kubectl create secret generic --help
+  498  kubectl  get secrets
+  499  kubectl  describe secrets my-secret
+  500  kubectl edit secrets my-secret
+  501  ls
+  502  rm -rf password.txt username.txt
+  503  kubectl  describe secrets my-secret
+  504  ls
+  505  cd k8s-ckad-philips-01-Aug-2022/
+  506  ls
+  507  cd 11-Secrets/
+  508  sl
+  509  ls
+  510  vim 01-helloworld-secrets-volumes.yaml
+  511  ls
+  512  kubectl  apply -f 01-helloworld-secrets-volumes.yaml
+  513  kubectl  get deploy
+  514  kubectl  get pods
+  515  kubectl  describe pod helloworld-deployment-666fcbff6-4wblz
+  516  kubectl  exec -it helloworld-deployment-666fcbff6-4wblz -- sh
+  517  s
+  518  ls
+  519  cat 02-helloworld-secrets.yaml
+  520  kubectl apply -f 02-helloworld-secrets.yaml
+  521  kubectl  get secrets
+  522  ls
+  523  vim 03-helloworld-secrets-volumes.yaml
+  524  kubectl  delete -f 01-helloworld-secrets-volumes.yaml
+  525  ls
+  526  vi 03-helloworld-secrets-volumes.yaml
+  527  ls
+  528  kubectl  apply -f 03-helloworld-secrets-volumes.yaml
+  529  kubectl  get deploy
+  530  kubectl  get pods
+  531  kubectl  exec -it helloworld-deployment-6776f4fd59-xp22t -- sh
+  532  ls
+  533  cd ..
+  534  ls
+  535  kubectl  delete -f 11-Secrets/
+  536  ls
+```
