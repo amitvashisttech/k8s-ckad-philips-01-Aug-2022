@@ -1,0 +1,30 @@
+```
+ 560  cd 12-Wordpress-Multi-Container-Pod/
+  561  s
+  562  ls
+  563  cat 01-wordpress-secrets.yml
+  564  kubectl  apply -f 01-wordpress-secrets.yml
+  565  ls
+  566  vim 02-wordpress-deployment.yml
+  567  ls
+  568  kubectl  apply -f 02-wordpress-deployment.yml
+  569  ls
+  570  cat 03-wordpress-service.yml
+  571  kubectl  apply -f 03-wordpress-service.yml
+  572  kubectl  get pods
+  573  kubectl  get svc
+  574  kubectl  get pods
+  575  kubectl describe pod wordpress-deployment-858c645bbb-rpmnh
+  576  cd
+  577  kubectl  get pods
+  578  kubectl  exec -it wordpress-deployment-858c645bbb-rpmnh -- bash
+  579  kubectl  exec -it wordpress-deployment-858c645bbb-rpmnh -c wordpress -- bash
+  580  kubectl  exec -it wordpress-deployment-858c645bbb-rpmnh -- mysql -u root -p
+  581  ls
+  582  cd k8s-ckad-philips-01-Aug-2022/
+  583  ls
+  584  cd 12-Wordpress-Multi-Container-Pod/
+  585  ls
+  586  cat History.txt
+  587  kubectl  exec -it wordpress-deployment-858c645bbb-rpmnh -- mysql -u root -p
+```
